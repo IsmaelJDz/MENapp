@@ -1,0 +1,23 @@
+extends layout
+
+block content
+        //a(href="/")=titulo
+
+        h1=titulo
+        div.contenedorArticles
+          a(href="agregar") Agregar
+         
+          -for ( var i = 0; i < camisetas.length; ++i){
+            div.item
+                h2 Camiseta #{camisetas[i].color}
+                img(src="img/"+camisetas[i].imagen,width="250")
+                small Precio:#{camisetas[i].precio} dólares
+          -}
+
+        include chat.jade
+
+        script(type='text/javascript', src="http://cdn.socket.io/socket.io-1.2.0.js")
+        script(type='text/javascript', src="http://code.jquery.com/jquery-1.11.1.js")
+        script(type='text/javascript', src="/js/main.js")
+
+
